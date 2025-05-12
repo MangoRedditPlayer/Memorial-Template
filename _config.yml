@@ -1,0 +1,48 @@
+# _config.yml
+
+# Site Meta (Template User can adjust these for their specific memorial site)
+title: "A Memorial Tribute"
+description: "A private space to remember and share memories of our beloved."
+baseurl: "" # If hosted at User.github.io/Memorial-Template, this should be "/Memorial-Template". If using a custom domain, it's often "".
+url: "" # The full URL to your site (e.g., "https://username.github.io" or your custom domain) - template user will set this.
+
+# -----------------------------------------------------------------------------
+# MEMORIAL CONFIGURATION - Template user MUST edit this section
+# -----------------------------------------------------------------------------
+memorial_settings:
+  deceased_name: "Replace with Loved One's Name" # Full name to display throughout the site
+  site_password: "securepassword123" # IMPORTANT: Template user must change this password!
+  # Optional: Add more configurable fields later like:
+  # welcome_message: "Welcome to this space dedicated to..."
+  # birth_date: "Month Day, Year"
+  # passing_date: "Month Day, Year"
+
+# -----------------------------------------------------------------------------
+# THIRD-PARTY SERVICE CONFIGURATION (for Memorial Wall comments/submissions)
+# -----------------------------------------------------------------------------
+# Example for Disqus (template user gets this from their Disqus account)
+# If not using Disqus, this can be removed or adapted for another service.
+disqus_shortname: "" # e.g., your-memorial-shortname (leave blank if not used initially)
+
+# -----------------------------------------------------------------------------
+# Jekyll Build Settings
+# -----------------------------------------------------------------------------
+theme: minima # A clean, minimal theme. You can change this later if desired.
+              # To use a theme, you might need to add it to your Gemfile (see Step 1.2)
+
+plugins:
+  - jekyll-feed # For an RSS feed, optional but good practice
+  # - jekyll-seo-tag # For better SEO, optional
+
+# Files/folders to exclude from the build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - MODERATOR_GUIDE.md # We'll create this later, it's not part of the live site
+  - LICENSE
