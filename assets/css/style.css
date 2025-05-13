@@ -9,7 +9,7 @@
 ---
 
 body {
-    background-color: {{ site.site_look.site_background_color | default: "#ffffff" }};
+    background-color: var(--site-bg-color) !important;
     color: {{ site.site_look.site_text_color | default: "#000000" }};
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
