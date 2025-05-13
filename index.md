@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Welcome Test
+title: Welcome
 permalink: /
 ---
 
-## Hello World!
+## Welcome to the Memorial for {{ site.memorial_settings.deceased_name }}
 
-If you see this, index.md is rendering its content.
+This space is dedicated to celebrating the life and cherishing the memories of {{ site.memorial_settings.deceased_name }}.
