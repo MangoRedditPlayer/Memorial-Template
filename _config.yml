@@ -3,7 +3,7 @@
 # Site Meta (Template User can adjust these for their specific memorial site)
 title: "A Memorial Tribute"
 description: "A private space to remember and share memories of our beloved."
-baseurl: "https://mangoredditplayer.github.io/Memorial-Template/" # Crucial for sites not at the root of a domain
+baseurl: "/Memorial-Template" # Crucial for sites not at the root of a domain
 url: "" # The full URL to your site (e.g., "https://username.github.io" or your custom domain) - template user will set this.
 
 # -----------------------------------------------------------------------------
