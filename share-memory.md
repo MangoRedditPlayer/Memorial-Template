@@ -15,7 +15,7 @@ Your name and memory will be displayed on the site once reviewed. Your email and
 ---
 
 <div class="google-form-embed">
-    <iframe src="<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe7RV4RYNWQYb5jmqgFrlS0eAxT_7VY-oP6JxAe7pp1z1tbgg/viewform?embedded=true" width="1200" height="1134" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe7RV4RYNWQYb5jmqgFrlS0eAxT_7VY-oP6JxAe7pp1z1tbgg/viewform?embedded=true" width="1200" height="1134" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 </div>
 
 ---
