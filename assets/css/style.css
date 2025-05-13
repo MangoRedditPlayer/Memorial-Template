@@ -1,168 +1,93 @@
----
-# Empty front matter to enable Jekyll Liquid processing
----
+/* assets/css/style.css (add these new rules) */
 
-/* Define colors as CSS Custom Properties (variables).
-  Jekyll will attempt to insert the values from _config.yml here.
-  If _config.yml values are missing or Liquid processing fails for a variable, 
-  the 'default' values in the Liquid tags will be used.
-*/
-:root {
-  --site-bg-color: {{ site.site_look.site_background_color | default: "#2c3e50" }};
-  --site-text-color: {{ site.site_look.site_text_color | default: "#ecf0f1" }};
-  --site-link-color: {{ site.site_look.link_color | default: "#3498db" }};
-  --site-link-hover-color: {{ site.site_look.link_hover_color | default: "#2980b9" }};
-  /* Using text color for borders, or you can add a specific site.site_look.border_color to _config.yml */
-  --site-border-color: {{ site.site_look.site_text_color | default: "#dddddd" }}; 
+/* ... (all your existing styles for :root, body, h1-h6, a, header, footer, main, .disqus-instructions, img, @media) ... */
+
+/* Tributes Page Styling */
+.tributes-list .tribute-item {
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+    /* border-bottom: 1px dashed var(--site-border-color); Remove this if using <hr> */
 }
-
-body {
-    background-color: var(--site-bg-color);
-    color: var(--site-text-color);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    
-    /* Base font size: 112.5% of browser default (usually 16px), so ~18px */
-    font-size: 112.5%; 
-    line-height: 1.7; /* Unitless for better readability, relative to font-size */
-    
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased; /* Improve font rendering */
-    -moz-osx-font-smoothing: grayscale; /* Improve font rendering */
+.tributes-list .tribute-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--site-text-color); /* Ensures headings use the configured text color */
-    margin-top: 1.5em;
+.tributes-list .tribute-item p { /* The main comment text */
+    font-size: 1.1em; /* Slightly larger for emphasis */
     margin-bottom: 0.5em;
-    line-height: 1.3; 
+}
+.tributes-list .tribute-item footer {
+    font-size: 0.9em;
+    color: var(--site-link-color); /* Use link color for attribution line */
+    text-align: right;
+    border-top: none; /* Override default footer border if any */
+    padding: 0.5em 0 0 0; /* Adjust padding */
+    margin-top: 0;
+}
+.tributes-list .tribute-name {
+    font-weight: bold;
+}
+.tributes-list .tribute-date {
+    font-style: italic;
+}
+hr.tribute-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), var(--site-border-color), rgba(255, 255, 255, 0));
+    margin: 1em 0 2em 0;
+}
+hr.tribute-divider:last-of-type { /* Try to hide the last hr */
+    display: none;
 }
 
-p {
-    margin-bottom: 1em;
+
+/* Photo Gallery Styling */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 1em;
 }
-
-/* Links */
-a {
-    color: var(--site-link-color);
-    text-decoration: none;
-}
-
-a:hover {
-    color: var(--site-link-hover-color);
-    text-decoration: underline;
-}
-
-/* Header Styling */
-.site-header-content {
-    /* Assumes padding: 1em; is still inline in _layouts/default.html */
-    border-bottom: 1px solid var(--site-border-color); 
-    margin-bottom: 2em; 
-}
-
-.site-header-content h1 {
-    margin-top: 0; 
-    margin-bottom: 0.5em;
-    font-size: 1.8rem; /* Using rem for scalability based on root font size */
-}
-
-/* Footer Styling */
-footer {
-    /* Assumes padding, text-align, margin-top are inline in _layouts/default.html */
-    border-top: 1px solid var(--site-border-color); 
-}
-
-footer p {
-    margin-bottom: 0.5em;
-    font-size: 0.9rem; /* Using rem for scalability */
-}
-
-/* Main Content Area */
-main {
-    /* If you had padding: 1em; inline in _layouts/default.html, 
-       you can leave it there or move it here if you prefer centralizing styles: */
-    /* padding: 1em; */ 
-
-    /* Constrain the width of the main content area for better readability 
-       and to control the width of embeds like Disqus.
-       800px is a common comfortable reading width. Adjust as you see fit.
-    */
-    max-width: 800px; 
-    margin-left: auto;  /* Center the main content block on the page */
-    margin-right: auto; /* Center the main content block on the page */
-}
-
-/* Styling for the Disqus Instructions Box on Memorial Wall */
-.disqus-instructions {
-    /* Example: var(--site-bg-color) might be #2c3e50.
-       This #34495e is a slightly lighter, complementary dark shade. 
-       Adjust as needed or use an rgba overlay like rgba(255, 255, 255, 0.05) 
-       for a very subtle effect over var(--site-bg-color).
-    */
-    background-color: #34495e; 
-    color: var(--site-text-color); 
-    padding: 1em 1.5em;
-    margin-top: 1.5em; /* Space above the instruction box */
-    margin-bottom: 2em; /* Space between instructions and Disqus iframe */
-    border-radius: 5px; 
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-}
-
-.disqus-instructions h3 {
-    margin-top: 0; /* Remove top margin if it's the first element in the box */
-    color: var(--site-link-color); /* Use link color for emphasis */
-}
-
-.disqus-instructions strong {
-    color: var(--site-link-color); /* Use link color for emphasis for other strong text */
-}
-
-.disqus-instructions p {
-    margin-bottom: 0.75em; 
-}
-
-.disqus-instructions ol {
-    padding-left: 1.5em; 
-    margin-bottom: 1em;
-}
-
-.disqus-instructions li {
-    margin-bottom: 0.5em; 
-}
-
-/* Responsive Images */
-img {
-    max-width: 100%;
+.photo-item img {
+    width: 100%;
     height: auto;
-    display: block; 
+    aspect-ratio: 1 / 1; /* Makes images square, adjust as needed e.g. 16/9 */
+    object-fit: cover; /* Ensures image covers the area, might crop */
+    border-radius: 4px;
+    border: 1px solid var(--site-border-color);
+}
+.photo-item figcaption {
+    font-size: 0.85em;
+    text-align: center;
+    margin-top: 0.5em;
+    color: var(--site-text-color);
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) { /* Common breakpoint for tablets and smaller */
-    body {
-        /* You can adjust base font size for smaller screens if 112.5% feels too large */
-        /* font-size: 100%; /* Example: back to browser default (16px) */
-    }
-
-    .site-header-content h1 {
-        font-size: 1.5rem; /* Smaller site title on mobile */
-    }
-
-    main {
-        /* Adjust max-width or padding for mobile if needed. 
-           Currently, 100% width up to 800px is fine due to max-width.
-           You might add padding directly to main for mobile here if you remove 
-           inline padding from _layouts/default.html's <main> tag.
-        */
-        /* padding-left: 0.5em; */
-        /* padding-right: 0.5em; */
-    }
-
-    .disqus-instructions {
-        padding: 1em; /* Slightly less padding on mobile */
-        margin-left: -1em; /* If main has 1em padding, this can help box align with edges on mobile if desired */
-        margin-right: -1em; /* Adjust these negative margins carefully based on your main padding */
-        /* Alternatively, just let it be constrained by main's padding */
-    }
+/* Video Gallery Styling */
+.video-gallery .video-item {
+    margin-bottom: 2em;
+}
+.video-embed-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000; /* Optional: background for letterboxing */
+    border: 1px solid var(--site-border-color);
+    border-radius: 4px;
+}
+.video-embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.video-item h4 { /* Caption for video */
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
+}
+.video-item p em { /* "Shared by" text */
+    font-size: 0.9em;
 }

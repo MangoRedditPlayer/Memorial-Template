@@ -1,0 +1,9 @@
+# _data/photos.yml
+# Each entry represents a photo for the gallery.
+# Moderator will curate links (possibly re-hosting on their Google Drive).
+# - submitter_name: "Jane Doe" # Optional, to credit who shared it
+#   image_url: "https://link.to/photo1.jpg" # Publicly viewable URL
+#   caption: "A cherished moment from the family picnic." # Optional
+# - submitter_name: "John Smith"
+#   image_url: "https://link.to/photo2.png"
+#   caption: "Graduation day!"

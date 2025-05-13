@@ -1,25 +1,25 @@
 ---
-# share-memory.md
 layout: default
 title: Share Your Memory of {{ site.memorial_settings.deceased_name }}
 permalink: /share-memory.html # Or /share-memory/
 ---
 
-## Share Your Memory
+## Share Your Memory of {{ site.memorial_settings.deceased_name }}
 
-We invite you to contribute your cherished memories of {{ site.memorial_settings.deceased_name }}. Your stories help create a rich tapestry of remembrance.
+We invite you to share your cherished memories, stories, photos, or videos of {{ site.memorial_settings.deceased_name }}. Your contributions will help us build a beautiful and lasting tribute.
 
-**How to Share:**
+Please use the form below to share your thoughts. If you are sharing links to photos or videos, please ensure they are viewable by anyone with the link.
 
-All memories and tributes can be shared directly on our **[Memorial Wall]({{ '/memorial-wall.html' | relative_url }})**.
+Your name and memory will be displayed on the site once reviewed. Your email and phone number are optional and will be kept private for administrator use only.
 
-Please visit the Memorial Wall page and scroll down to find the comment section.
+---
 
-**Tips for Sharing:**
-* You can write text directly in the comment box.
-* Guest commenting is enabled (no login usually required).
-* To include photos or videos, please upload them first to a service like Google Photos, YouTube, Imgur, etc. Then, simply **paste the share link (URL)** for the photo or video into your comment text. Disqus often creates a nice preview automatically.
+<div class="google-form-embed">
+    <iframe src="<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe7RV4RYNWQYb5jmqgFrlS0eAxT_7VY-oP6JxAe7pp1z1tbgg/viewform?embedded=true" width="1200" height="1134" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</div>
 
-*Submissions will appear on the Memorial Wall, typically right away. The site administrator can review and manage all shared content via Disqus.*
+---
 
-Thank you for adding to this collective tribute.
+*After you submit, your memory will be sent to the site administrator for review before being added to the appropriate section of the memorial.*
+
+Thank you for contributing!

@@ -1,0 +1,11 @@
+# _data/videos.yml
+# Each entry represents a video for the gallery.
+# Moderator will add embeddable links.
+# - submitter_name: "Jane Doe"
+#   video_url: "https://www.youtube.com/embed/VIDEO_ID" # YouTube embed URL
+#   platform: "youtube" # Helps with templating if needed
+#   caption: "His favorite song."
+# - submitter_name: "John Smith"
+#   video_url: "https://player.vimeo.com/video/VIDEO_ID" # Vimeo embed URL
+#   platform: "vimeo"
+#   caption: "Holiday greetings video."
