@@ -28,7 +28,7 @@ comments: true
 # -----------------------------------------------------------------------------
 # Example for Disqus (template user gets this from their Disqus account)
 # If not using Disqus, this can be removed or adapted for another service.
-disqus_shortname: "SWO-Memorial-Template" # e.g., your-memorial-shortname (leave blank if not used initially)
+disqus_shortname: "swo-memorial-template" # e.g., your-memorial-shortname (leave blank if not used initially)
 
 # -----------------------------------------------------------------------------
 # Jekyll Build Settings
