@@ -3,8 +3,8 @@
 # Site Meta (Template User can adjust these for their specific memorial site)
 title: "A Memorial Tribute"
 description: "A private space to remember and share memories of our beloved."
-baseurl: "/Memorial-Template/splash.html" # Crucial for sites not at the root of a domain
-url: "" # The full URL to your site (e.g., "https://username.github.io" or your custom domain) - template user will set this.
+baseurl: "/Memorial-Template" # Crucial for sites not at the root of a domain
+url: "https://mangoredditplayer.github.io/Memorial-Template/" # The full URL to your site (e.g., "https://username.github.io" or your custom domain) - template user will set this.
 
 # -----------------------------------------------------------------------------
 # MEMORIAL CONFIGURATION - Template user MUST edit this section
