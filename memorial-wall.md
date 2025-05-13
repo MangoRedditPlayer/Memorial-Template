@@ -11,7 +11,7 @@ Welcome to the Memorial Wall. This is a special place for family and friends to 
 
 ---
 
-<div class="disqus-instructions">
+<div class="disqus-instructions" markdown="1">
 
 <h3 style="margin-top: 0;">Sharing Your Memory Below: A Quick Guide</h3>
 
