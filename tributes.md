@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Shared Tributes to {{ site.memorial_settings.deceased_name }}
-permalink: /tributes/
+permalink: /tributes.html # Ensures it generates as tributes.html
 ---
 
 ## Shared Tributes & Memories

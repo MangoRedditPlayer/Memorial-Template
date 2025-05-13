@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Photo Gallery for {{ site.memorial_settings.deceased_name }}
-permalink: /photos/
+permalink: /photos.html # Ensures it generates as photos.html
 ---
 
 ## Photo Memories

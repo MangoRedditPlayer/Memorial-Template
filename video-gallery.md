@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Video Tributes for {{ site.memorial_settings.deceased_name }}
-permalink: /videos/
+permalink: /videos.html # Ensures it generates as videos.html
 ---
 
 ## Video Memories
