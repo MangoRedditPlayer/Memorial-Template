@@ -4,7 +4,7 @@
 title: "A Memorial Tribute"
 description: "A private space to remember and share memories of our beloved."
 baseurl: "/Memorial-Template" # Crucial for sites not at the root of a domain
-url: "https://mangoredditplayer.github.io/Memorial-Template/" # The full URL to your site (e.g., "https://username.github.io" or your custom domain) - template user will set this.
+url: "https://mangoredditplayer.github.io/Memorial-Template" # Removed trailing slash
 
 # -----------------------------------------------------------------------------
 # MEMORIAL CONFIGURATION - Template user MUST edit this section
