@@ -2,76 +2,111 @@
 # Empty front matter to enable Jekyll Liquid processing
 ---
 
-/* Your CSS content will go below this */
-
----
-# Empty front matter to enable Jekyll Liquid processing
----
-
-body {
-    background-color: var(--site-bg-color) !important;
-    color: {{ site.site_look.site_text_color | default: "#000000" }};
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6; /* Improves readability */
+/* Define colors as CSS Custom Properties (variables).
+  Jekyll will attempt to insert the values from _config.yml here.
+  If _config.yml values are missing or Liquid processing fails for a variable, 
+  the 'default' values in the Liquid tags will be used.
+  If Liquid processing fails entirely for this file, these will appear as 
+  literal Liquid tags in your live CSS, and the browser will ignore them,
+  likely resulting in no custom colors being applied from this section.
+*/
+:root {
+  --site-bg-color: {{ site.site_look.site_background_color | default: "#2c3e50" }};
+  --site-text-color: {{ site.site_look.site_text_color | default: "#ecf0f1" }};
+  --site-link-color: {{ site.site_look.link_color | default: "#3498db" }};
+  --site-link-hover-color: {{ site.site_look.link_hover_color | default: "#2980b9" }};
+  /* Using text color for borders, or you can add a specific site.site_look.border_color to _config.yml */
+  --site-border-color: {{ site.site_look.site_text_color | default: "#dddddd" }}; 
 }
 
+body {
+    background-color: var(--site-bg-color);
+    color: var(--site-text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    
+    /* Base font size: 112.5% of browser default (usually 16px), so ~18px */
+    font-size: 112.5%; 
+    line-height: 1.7; /* Unitless for better readability, relative to font-size */
+    
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased; /* Improve font rendering */
+    -moz-osx-font-smoothing: grayscale; /* Improve font rendering */
+}
+
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-    color: {{ site.site_look.site_text_color | default: "#000000" }};
+    color: var(--site-text-color); /* Ensures headings use the configured text color */
     margin-top: 1.5em;
     margin-bottom: 0.5em;
+    line-height: 1.3; 
 }
 
 p {
     margin-bottom: 1em;
 }
 
+/* Links */
 a {
-    color: {{ site.site_look.link_color | default: "#007bff" }};
-    text-decoration: none; /* Optional: remove underline from links */
+    color: var(--site-link-color);
+    text-decoration: none;
 }
 
 a:hover {
-    color: {{ site.site_look.link_hover_color | default: "#0056b3" }};
-    text-decoration: underline; /* Optional: add underline on hover */
+    color: var(--site-link-hover-color);
+    text-decoration: underline;
 }
 
-/* Styling for Header */
+/* Header Styling */
 .site-header-content {
-    /* padding is still inline in default.html, or you can move it here */
-    /* Example: padding: 1em; */
-    border-bottom: 1px solid {{ site.site_look.site_text_color | default: "#dddddd" }}; /* Border color that contrasts with background */
-    margin-bottom: 2em; /* Space below header */
+    /* Assumes padding: 1em; is still inline in _layouts/default.html */
+    border-bottom: 1px solid var(--site-border-color); 
+    margin-bottom: 2em; 
 }
 
 .site-header-content h1 {
-    margin-top: 0;
+    margin-top: 0; 
     margin-bottom: 0.5em;
+    font-size: 1.8rem; /* Using rem for scalability based on root font size */
 }
 
-.site-header-content nav a {
-    /* margin-right is inline in default.html, or move it here */
-    /* Example: margin-right: 15px; */
-}
-
-/* Styling for Footer */
+/* Footer Styling */
 footer {
-    /* padding, text-align, margin-top are still inline in default.html, or move them here */
-    /* Example: 
-    padding: 1em; 
-    text-align: center; 
-    margin-top: 2em; 
-    */
-    border-top: 1px solid {{ site.site_look.site_text_color | default: "#dddddd" }}; /* Border color that contrasts */
+    /* Assumes padding, text-align, margin-top are inline in _layouts/default.html */
+    border-top: 1px solid var(--site-border-color); 
 }
 
 footer p {
     margin-bottom: 0.5em;
+    font-size: 0.9rem; /* Using rem for scalability */
 }
 
-/* Main content area for consistent padding if needed */
+/* Main Content Area */
 main {
-    /* padding is inline in default.html, or move it here */
-    /* Example: padding: 1em; */
+    /* Assumes padding: 1em; is still inline in _layouts/default.html */
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) { /* Common breakpoint for tablets and smaller */
+    body {
+        /* You can adjust base font size for smaller screens if 112.5% feels too large */
+        /* font-size: 100%; /* Example: back to browser default (16px) */
+    }
+
+    .site-header-content h1 {
+        font-size: 1.5rem; /* Smaller site title on mobile */
+    }
+
+    /* Optional: Adjust padding on key layout elements for smaller screens */
+    /* .site-header-content, main, footer {
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+    } */
 }
