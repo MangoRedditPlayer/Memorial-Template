@@ -27,7 +27,7 @@
 
     <script>
         // This password variable should now be correctly populated by Jekyll
-        const correctPassword = "{{ site.memorial_settings.site_password | escape }}";
+		const correctPassword = "{{ site.memorial_settings.site_password }}"; // Removed | escape
         const mainSiteUrl = "{{ '/' | relative_url }}";
 
         // Optional: Add console logging for easier debugging in browser (F12 -> Console)
