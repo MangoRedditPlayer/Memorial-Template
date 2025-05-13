@@ -17,11 +17,6 @@ memorial_settings:
   # birth_date: "Month Day, Year"
   # passing_date: "Month Day, Year"
 
----
-layout: default
-comments: true
-# other options
----
 
 # -----------------------------------------------------------------------------
 # THIRD-PARTY SERVICE CONFIGURATION (for Memorial Wall comments/submissions)
