@@ -6,9 +6,6 @@
   Jekyll will attempt to insert the values from _config.yml here.
   If _config.yml values are missing or Liquid processing fails for a variable, 
   the 'default' values in the Liquid tags will be used.
-  If Liquid processing fails entirely for this file, these will appear as 
-  literal Liquid tags in your live CSS, and the browser will ignore them,
-  likely resulting in no custom colors being applied from this section.
 */
 :root {
   --site-bg-color: {{ site.site_look.site_background_color | default: "#2c3e50" }};
@@ -83,7 +80,55 @@ footer p {
 
 /* Main Content Area */
 main {
-    /* Assumes padding: 1em; is still inline in _layouts/default.html */
+    /* If you had padding: 1em; inline in _layouts/default.html, 
+       you can leave it there or move it here if you prefer centralizing styles: */
+    /* padding: 1em; */ 
+
+    /* Constrain the width of the main content area for better readability 
+       and to control the width of embeds like Disqus.
+       800px is a common comfortable reading width. Adjust as you see fit.
+    */
+    max-width: 800px; 
+    margin-left: auto;  /* Center the main content block on the page */
+    margin-right: auto; /* Center the main content block on the page */
+}
+
+/* Styling for the Disqus Instructions Box on Memorial Wall */
+.disqus-instructions {
+    /* Example: var(--site-bg-color) might be #2c3e50.
+       This #34495e is a slightly lighter, complementary dark shade. 
+       Adjust as needed or use an rgba overlay like rgba(255, 255, 255, 0.05) 
+       for a very subtle effect over var(--site-bg-color).
+    */
+    background-color: #34495e; 
+    color: var(--site-text-color); 
+    padding: 1em 1.5em;
+    margin-top: 1.5em; /* Space above the instruction box */
+    margin-bottom: 2em; /* Space between instructions and Disqus iframe */
+    border-radius: 5px; 
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+.disqus-instructions h3 {
+    margin-top: 0; /* Remove top margin if it's the first element in the box */
+    color: var(--site-link-color); /* Use link color for emphasis */
+}
+
+.disqus-instructions strong {
+    color: var(--site-link-color); /* Use link color for emphasis for other strong text */
+}
+
+.disqus-instructions p {
+    margin-bottom: 0.75em; 
+}
+
+.disqus-instructions ol {
+    padding-left: 1.5em; 
+    margin-bottom: 1em;
+}
+
+.disqus-instructions li {
+    margin-bottom: 0.5em; 
 }
 
 /* Responsive Images */
@@ -104,9 +149,20 @@ img {
         font-size: 1.5rem; /* Smaller site title on mobile */
     }
 
-    /* Optional: Adjust padding on key layout elements for smaller screens */
-    /* .site-header-content, main, footer {
-        padding-left: 0.75em;
-        padding-right: 0.75em;
-    } */
+    main {
+        /* Adjust max-width or padding for mobile if needed. 
+           Currently, 100% width up to 800px is fine due to max-width.
+           You might add padding directly to main for mobile here if you remove 
+           inline padding from _layouts/default.html's <main> tag.
+        */
+        /* padding-left: 0.5em; */
+        /* padding-right: 0.5em; */
+    }
+
+    .disqus-instructions {
+        padding: 1em; /* Slightly less padding on mobile */
+        margin-left: -1em; /* If main has 1em padding, this can help box align with edges on mobile if desired */
+        margin-right: -1em; /* Adjust these negative margins carefully based on your main padding */
+        /* Alternatively, just let it be constrained by main's padding */
+    }
 }
