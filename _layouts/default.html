@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title | escape }} - {{ site.memorial_settings.deceased_name | escape }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-
+    
     <script>
         // Check if access was granted via splash screen
         // Redirect back to splash if not.
@@ -18,24 +18,3 @@
 </head>
 <body>
     <header>
-        <div class="site-header-content" style="padding: 1em; background-color: #f8f9fa; border-bottom: 1px solid #dee2e6;">
-            <h1>Remembering {{ site.memorial_settings.deceased_name | escape }}</h1>
-            <nav>
-                <a href="{{ '/' | relative_url }}" style="margin-right: 15px;">Home</a>
-                <a href="{{ '/about.html' | relative_url }}" style="margin-right: 15px;">About {{ site.memorial_settings.deceased_name | split: " " | first | escape }}</a>
-                <a href="{{ '/memorial-wall.html' | relative_url }}" style="margin-right: 15px;">Memorial Wall</a>
-                <a href="{{ '/share-memory.html' | relative_url }}">Share a Memory</a>
-            </nav>
-        </div>
-    </header>
-
-    <main style="padding: 1em;">
-        {{ content }}
-    </main>
-
-    <footer style="padding: 1em; background-color: #f8f9fa; border-top: 1px solid #dee2e6; text-align: center; margin-top: 2em;">
-        <p>&copy; {{ "now" | date: "%Y" }} The Family and Friends of {{ site.memorial_settings.deceased_name | escape }}.</p>
-        <p><em>This memorial is a private space.</em></p>
-    </footer>
-</body>
-</html>

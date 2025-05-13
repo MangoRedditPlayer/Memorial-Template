@@ -33,6 +33,23 @@ This guide helps you set up and manage your memorial website using this template
     * Select your memorial site.
     * Go to the "Moderate Comments" section.
     * Here you can approve, delete, mark as spam, or sometimes edit comments left by visitors. You will also receive email notifications for new comments if configured.
+	
+## Customizing Site Appearance (in `_config.yml`)
+
+You can change the main colors of your memorial site by editing the `site_look:` section in `_config.yml`:
+
+* `site_background_color:` Sets the overall background color for the site. Uses hex color codes (e.g., `"#333333"` for dark grey, `"#ffffff"` for white).
+* `site_text_color:` Sets the main text color. Choose a color that contrasts well with your `site_background_color`.
+* `link_color:` Sets the color for clickable links.
+* `link_hover_color:` Sets the color for links when a mouse hovers over them.
+
+**Example:**
+```yaml
+site_look:
+  site_background_color: "#2c3e50"
+  site_text_color: "#ecf0f1"
+  link_color: "#3498db"
+  link_hover_color: "#2980b9"
 
 ## Important Notes
 

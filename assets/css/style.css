@@ -1,0 +1,77 @@
+---
+# Empty front matter to enable Jekyll Liquid processing
+---
+
+/* Your CSS content will go below this */
+
+---
+# Empty front matter to enable Jekyll Liquid processing
+---
+
+body {
+    background-color: {{ site.site_look.site_background_color | default: "#ffffff" }};
+    color: {{ site.site_look.site_text_color | default: "#000000" }};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* Improves readability */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: {{ site.site_look.site_text_color | default: "#000000" }};
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: {{ site.site_look.link_color | default: "#007bff" }};
+    text-decoration: none; /* Optional: remove underline from links */
+}
+
+a:hover {
+    color: {{ site.site_look.link_hover_color | default: "#0056b3" }};
+    text-decoration: underline; /* Optional: add underline on hover */
+}
+
+/* Styling for Header */
+.site-header-content {
+    /* padding is still inline in default.html, or you can move it here */
+    /* Example: padding: 1em; */
+    border-bottom: 1px solid {{ site.site_look.site_text_color | default: "#dddddd" }}; /* Border color that contrasts with background */
+    margin-bottom: 2em; /* Space below header */
+}
+
+.site-header-content h1 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.site-header-content nav a {
+    /* margin-right is inline in default.html, or move it here */
+    /* Example: margin-right: 15px; */
+}
+
+/* Styling for Footer */
+footer {
+    /* padding, text-align, margin-top are still inline in default.html, or move them here */
+    /* Example: 
+    padding: 1em; 
+    text-align: center; 
+    margin-top: 2em; 
+    */
+    border-top: 1px solid {{ site.site_look.site_text_color | default: "#dddddd" }}; /* Border color that contrasts */
+}
+
+footer p {
+    margin-bottom: 0.5em;
+}
+
+/* Main content area for consistent padding if needed */
+main {
+    /* padding is inline in default.html, or move it here */
+    /* Example: padding: 1em; */
+}

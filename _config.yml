@@ -1,5 +1,16 @@
 # _config.yml
 
+# _config.yml (add this new section, or integrate into an existing one)
+
+# -----------------------------------------------------------------------------
+# SITE LOOK & FEEL - Template user can customize these
+# -----------------------------------------------------------------------------
+site_look:
+  site_background_color: "#2c3e50"  # A deep, modern dark blue/charcoal
+  site_text_color: "#ecf0f1"        # A light, soft white/grey
+  link_color: "#3498db"             # A bright, clear blue for links
+  link_hover_color: "#2980b9"       # A slightly darker blue for link hover
+
 # Site Meta (Template User can adjust these for their specific memorial site)
 title: "A Memorial Tribute"
 description: "A private space to remember and share memories of our beloved."
