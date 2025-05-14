@@ -32,6 +32,16 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.text();
         })
         .then(csvText => {
+		    // ---- START OF NEW DIAGNOSTIC CODE ----
+    console.log("Raw fetched text (first 1000 characters):");
+    console.log(csvText.substring(0, 1000)); 
+
+    // TEMPORARILY STOP FURTHER EXECUTION FOR THIS TEST:
+    if (true) { 
+        document.getElementById('tributes-container').innerHTML = "<p>Diagnostic Mode: Check browser developer console (F12) for 'Raw fetched text'.</p>";
+        return; // Stop the script here
+    }
+    // ---- END OF NEW DIAGNOSTIC CODE ----
             tributesContainer.innerHTML = ''; // Clear "Loading..." message
             
             // Split CSV text into rows. Google Sheets CSV often uses \r\n or \n.
