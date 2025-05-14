@@ -15,6 +15,7 @@ Here are the heartfelt tributes and memories shared by family and friends. New t
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const tributesContainer = document.getElementById('tributes-container');
+    // The following Liquid tag will be replaced by Jekyll with the actual URL from your _config.yml
     const csvUrl = "{{ site.memorial_settings.published_tributes_csv_url | escape }}";
 
     if (!csvUrl || csvUrl === "" || csvUrl === "YOUR_PUBLISHED_GOOGLE_SHEET_CSV_URL_HERE") {
@@ -33,7 +34,11 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(csvText => {
             tributesContainer.innerHTML = ''; // Clear "Loading..." message
             
-            const rows = csvText.trim().split(/\r\n|\n|\r/).slice(1); // Remove header row
+            // Split CSV text into rows. Google Sheets CSV often uses \r\n or \n.
+            // .trim() removes leading/trailing whitespace from the whole CSV text.
+            // .split(/\r\n|\n|\r/) splits by any common newline sequence.
+            // .slice(1) removes the header row from the CSV.
+            const rows = csvText.trim().split(/\r\n|\n|\r/).slice(1); 
 
             if (rows.length === 0 || (rows.length === 1 && rows[0].trim() === '')) {
                 tributesContainer.innerHTML = "<p>No tributes have been shared yet. Please check back soon.</p>";
@@ -41,26 +46,31 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             rows.forEach((rowStr, index) => {
-                if (rowStr.trim() === '') return; 
+                if (rowStr.trim() === '') return; // Skip any completely empty rows
 
+                // Basic CSV parsing: Split by comma. 
+                // This simple parser assumes commas are not within fields, 
+                // or if they are, fields are properly quoted by Google Sheets.
                 const columns = rowStr.split(',').map(field => {
+                    // Trim quotes if field is quoted (e.g., "field data")
                     if (field.startsWith('"') && field.endsWith('"')) {
-                        return field.substring(1, field.length - 1).replace(/""/g, '"');
+                        // Remove leading/trailing quotes and replace escaped double quotes ("") with a single double quote (")
+                        return field.substring(1, field.length - 1).replace(/""/g, '"'); 
                     }
-                    return field;
+                    return field.trim(); // Trim whitespace from unquoted fields
                 });
 
-                if (columns.length >= 3) {
-                    const timestamp = columns[0].trim();
-                    const name = columns[1].trim();
-                    const comment = columns[2].trim();
+                if (columns.length >= 3) { // Expecting at least Timestamp, Name, Comment
+                    const timestamp = columns[0]; // Already trimmed
+                    const name = columns[1];      // Already trimmed
+                    const comment = columns[2];   // Already trimmed
 
-                    if (name && comment) { 
+                    if (name && comment) { // Only proceed if name and comment are not empty
                         const article = document.createElement('article');
                         article.className = 'tribute-item';
 
                         // 1. Name
-                        const nameHeader = document.createElement('h4'); // Using h4 for the name
+                        const nameHeader = document.createElement('h4'); 
                         nameHeader.className = 'tribute-name';
                         nameHeader.textContent = name;
                         article.appendChild(nameHeader);
@@ -68,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         // 2. Comment (Memory/Tribute)
                         const commentParagraph = document.createElement('p');
                         commentParagraph.className = 'tribute-comment';
-                        commentParagraph.textContent = comment; // CSS `white-space: pre-wrap;` will handle line breaks
+                        commentParagraph.textContent = comment; // Relies on CSS `white-space: pre-wrap;` for line breaks
                         article.appendChild(commentParagraph);
 
                         // 3. Timestamp (Date)
@@ -78,14 +88,15 @@ document.addEventListener('DOMContentLoaded', function() {
                             let formattedDate = 'Date not available';
                             try {
                                 const dateObj = new Date(timestamp);
+                                // Check if dateObj is valid
                                 if (!isNaN(dateObj.getTime())) {
                                     formattedDate = dateObj.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }) + ' ' +
                                                     dateObj.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', hour12: true });
                                 } else {
-                                    formattedDate = timestamp; 
+                                    formattedDate = timestamp; // Fallback to raw timestamp if parsing fails
                                 }
                             } catch (e) {
-                                formattedDate = timestamp; 
+                                formattedDate = timestamp; // Fallback if Date object creation fails
                                 console.warn("Could not parse date:", timestamp, e);
                             }
                             dateParagraph.textContent = formattedDate;
@@ -94,8 +105,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         tributesContainer.appendChild(article);
 
+                        // Add <hr class="tribute-divider"> after each item, except the last one effectively
                         if (index < rows.length - 1) {
-                            if (rows[index+1] && rows[index+1].trim() !== '') {
+                            // Check if the next row is not just whitespace to avoid trailing hr
+                            let nextRowIsNotEmpty = false;
+                            for (let i = index + 1; i < rows.length; i++) {
+                                if (rows[i].trim() !== '') {
+                                    nextRowIsNotEmpty = true;
+                                    break;
+                                }
+                            }
+                            if (nextRowIsNotEmpty) {
                                 const hr = document.createElement('hr');
                                 hr.className = 'tribute-divider';
                                 tributesContainer.appendChild(hr);
@@ -103,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     }
                 } else {
-                    console.warn("Skipping malformed row:", rowStr, columns);
+                    console.warn("Skipping malformed CSV row (not enough columns):", rowStr);
                 }
             });
         })
