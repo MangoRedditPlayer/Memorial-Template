@@ -2,46 +2,64 @@
 
 /* ... (all your existing styles for :root, body, h1-h6, a, header, footer, main, .disqus-instructions, img, @media) ... */
 
-/* Tributes Page Styling */
+/* assets/css/style.css */
+
+/* ... (your existing :root, body, h1-h6, a, header, footer, main styles) ... */
+
+/* Tributes Page Styling - UPDATED */
 .tributes-list .tribute-item {
     margin-bottom: 1.5em;
-    padding-bottom: 1.5em;
-    /* border-bottom: 1px dashed var(--site-border-color); Remove this if using <hr> */
+    padding-bottom: 1.5em; 
+    /* border-bottom is handled by hr.tribute-divider if present */
 }
-.tributes-list .tribute-item:last-child {
+
+.tributes-list .tribute-item:last-child { /* If not using <hr> after last item, this ensures no extra bottom margin */
     margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
+    padding-bottom: 0; 
 }
-.tributes-list .tribute-item p { /* The main comment text */
-    font-size: 1.1em; /* Slightly larger for emphasis */
-    margin-bottom: 0.5em;
-}
-.tributes-list .tribute-item footer {
-    font-size: 0.9em;
-    color: var(--site-link-color); /* Use link color for attribution line */
-    text-align: right;
-    border-top: none; /* Override default footer border if any */
-    padding: 0.5em 0 0 0; /* Adjust padding */
-    margin-top: 0;
-}
-.tributes-list .tribute-name {
+
+h4.tribute-name { /* Styling for the Name */
+    font-size: 1.2em; /* Or your preferred size */
+    color: var(--site-link-color); /* Make name stand out, or use var(--site-text-color) */
+    margin-top: 0; /* Adjust spacing if needed */
+    margin-bottom: 0.25em;
     font-weight: bold;
 }
-.tributes-list .tribute-date {
-    font-style: italic;
+
+p.tribute-comment { /* Styling for the Memory/Tribute text */
+    font-size: 1.1em; 
+    margin-bottom: 0.5em;
+    white-space: pre-wrap; /* Preserves line breaks from the comment data */
+    /* Ensure it uses the main text color, already inherited from body but can be explicit */
+    color: var(--site-text-color); 
 }
+
+p.tribute-date { /* Styling for the Timestamp */
+    font-size: 0.85em;
+    font-style: italic;
+    color: var(--site-text-color); /* Or a slightly muted version of text color */
+    opacity: 0.8; /* Slightly muted */
+    margin-top: 0.5em;
+    margin-bottom: 0;
+    text-align: left; /* Or 'right' if you prefer */
+}
+
 hr.tribute-divider {
     border: 0;
     height: 1px;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), var(--site-border-color), rgba(255, 255, 255, 0));
-    margin: 1em 0 2em 0;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--site-border-color), rgba(0, 0, 0, 0));
+    margin: 1.5em 0 2em 0; /* Provides spacing */
 }
-hr.tribute-divider:last-of-type { /* Try to hide the last hr */
+/* Note: The JS attempts to not add a divider after the very last item.
+   If a stray one appears, this CSS rule tries to hide it if it's truly the last child,
+   but JS control is more reliable for dynamically added content.
+*/
+.tributes-list > hr.tribute-divider:last-child {
     display: none;
 }
 
 
+/* ... (your existing .disqus-instructions, img, @media styles) ... */
 /* Photo Gallery Styling */
 .photo-gallery {
     display: grid;
