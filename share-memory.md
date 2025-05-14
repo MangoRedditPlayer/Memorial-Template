@@ -12,6 +12,8 @@ Please use the form below to share your thoughts. If you are sharing links to ph
 
 Your name and memory will be displayed on the site once reviewed. Your email and phone number are optional and will be kept private for administrator use only.
 
+After clicking "Submit" at the bottom of the form, you should see a text confirmation "Your response has been recorded." There are no limits on submissions.
+
 ---
 
 <div class="google-form-embed">
