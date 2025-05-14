@@ -32,11 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.text();
         })
         .then(csvText => {
-    if (true) { 
-        document.getElementById('tributes-container').innerHTML = "<p>Diagnostic Mode: Check browser developer console (F12) for 'Raw fetched text'.</p>";
-        return; // Stop the script here
-    }
-    // ---- END OF NEW DIAGNOSTIC CODE ----
             tributesContainer.innerHTML = ''; // Clear "Loading..." message
             
             // Split CSV text into rows. Google Sheets CSV often uses \r\n or \n.
