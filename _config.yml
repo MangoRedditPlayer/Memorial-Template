@@ -23,7 +23,7 @@ url: "https://mangoredditplayer.github.io/Memorial-Template" # Removed trailing 
 memorial_settings:
   deceased_name: "Replace with Loved One's Name" # Full name to display throughout the site
   site_password: "asdf123" # IMPORTANT: Template user must change this password!
-  published_tributes_csv_url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSXTzuE7UfIZ8OlT_DVb8pP4ocLIfWOv7htINSdYPVZDGBG1ExUkDiV6rGS_RhLzF6eO7Kj6CpFZaSZ/pub?gid=802112848&single=true&output=csv" 
+  published_tributes_csv_url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSXTzuE7UfIZ8OlT_DVb8pP4ocLIfWOv7htINSdYPVZDGBG1ExUkDiV6rGS_RhLzF6eO7Kj6CpFZaSZ/pubhtml?gid=802112848&single=true" 
   # Optional: Add more configurable fields later like:
   # welcome_message: "Welcome to this space dedicated to..."
   # birth_date: "Month Day, Year"
