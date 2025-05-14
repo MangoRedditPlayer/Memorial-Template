@@ -12,7 +12,7 @@ from googleapiclient.discovery import build
 
 GCP_SA_CREDENTIALS_JSON_STR = os.environ.get('GCP_SA_CREDENTIALS')
 GOOGLE_SHEET_ID = os.environ.get('GOOGLE_SHEET_ID')
-MEDIA_SHEET_NAME = os.environ.get('MEDIA_SHEET_NAME', 'Media_Gallery_Input') # Default sheet name if not set
+MEDIA_SHEET_NAME = os.environ.get('Media_Gallery_Input') # Default sheet name if not set
 
 # The specific range to read from your sheet.
 # Assumes headers are in row 1, and data starts from row 2.
