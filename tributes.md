@@ -1,61 +1,24 @@
 ---
 layout: default
-title: Tribute Data Test
-permalink: /tributes.html 
+title: Shared Tributes to {{ site.memorial_settings.deceased_name }}
+permalink: /tributes.html
 ---
 
-## Tribute Data Fetch Test
+## Shared Tributes & Memories
 
-<div id="test-container">
-    <p>Attempting to fetch data. Check the browser console (F12).</p>
+Here are the heartfelt tributes and memories shared by family and friends. These are updated regularly by the site administrator.
+
+<div class="google-sheet-tributes-embed">
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSXTzuE7UfIZ8OlT_DVb8pP4ocLIfWOv7htINSdYPVZDGBG1ExUkDiV6rGS_RhLzF6eO7Kj6CpFZaSZ/pubhtml?gid=802112848&amp;single=true&amp;widget=true&amp;headers=false" width="100%" height="800px" frameborder="0">Loading tributes... If content doesn't load, ensure your browser allows third-party cookies or try a different browser.</iframe>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const testContainer = document.getElementById('test-container');
-    const csvUrl = "{{ site.memorial_settings.published_tributes_csv_url | escape }}";
-
-    if (!csvUrl || csvUrl === "" || csvUrl === "YOUR_PUBLISHED_GOOGLE_SHEET_CSV_URL_HERE") {
-        testContainer.innerHTML = "<p><strong>Error:</strong> Published Tributes CSV URL is not configured in _config.yml or is still the placeholder value.</p>";
-        console.error("Published Tributes CSV URL is not configured or is placeholder.");
-        return;
-    }
-
-    console.log("Attempting to fetch CSV from URL:", csvUrl);
-    testContainer.innerHTML = "<p>Fetching data from: " + csvUrl + "<br>Check console for raw response text.</p>";
-
-    fetch(csvUrl)
-        .then(response => {
-            console.log("Fetch response status:", response.status);
-            console.log("Fetch response ok:", response.ok);
-            // Log all response headers to see content-type etc.
-            console.log("Response Headers:");
-            response.headers.forEach((value, name) => {
-                console.log(`${name}: ${value}`);
-            });
-            return response.text(); // Get the response body as text
-        })
-        .then(rawText => {
-            console.log("-------------------------------------------");
-            console.log("RAW TEXT RECEIVED (first 2000 characters):");
-            console.log(rawText.substring(0, 2000));
-            console.log("-------------------------------------------");
-            console.log("Full raw text length:", rawText.length);
-
-            if (rawText.toLowerCase().includes("<html") || rawText.toLowerCase().includes("<body") || rawText.toLowerCase().includes("<script")) {
-                testContainer.innerHTML += "<p><strong>Warning: Fetched data appears to be HTML/JavaScript, not plain CSV.</strong> Please verify the 'Publish to web' settings in Google Sheets ensure it's outputting raw CSV and the correct URL is used.</p>";
-                console.warn("Warning: Fetched data appears to be HTML/JavaScript!");
-            } else if (rawText.trim().startsWith("Timestamp,Your Name,Your Memory or Tribute")) { // Or your actual header
-                testContainer.innerHTML += "<p><strong>Success: Fetched data appears to be CSV.</strong> See console for raw text.</p>";
-                console.log("Success: Fetched data appears to be CSV.");
-            } else {
-                testContainer.innerHTML += "<p><strong>Notice: Fetched data is not clearly CSV or HTML.</strong> See console for raw text.</p>";
-                console.warn("Notice: Fetched data format is undetermined from this quick check.");
-            }
-        })
-        .catch(error => {
-            console.error('Error during fetch operation:', error);
-            testContainer.innerHTML = "<p><strong>Fetch Error:</strong> " + error.message + ". Could not load data. Check console and ensure the CSV URL is correct and publicly accessible.</p>";
-        });
-});
-</script>
+<div class="instruction-box" markdown="1" style="margin-top: 2em;">
+    <h3 style="margin-top: 0;">About These Tributes</h3>
+    <p>The tributes above are displayed directly from a curated collection. If you have submitted a memory via the "Share Your Memory" page, it will be reviewed by the site administrator before being considered for inclusion.</p>
+    
+    <h4>Making it Easier to Read:</h4>
+    <ul>
+        <li><strong>Alternating Row Colors:</strong> This can be set by the site administrator directly within the source Google Sheet (using the "Format > Alternating colors" menu). We recommend choosing light text on darker, subtly different background shades to match our site's theme.</li>
+        <li><strong>Text & Column Widths:</strong> Text wrapping and appropriate column widths for readability are also best managed within the Google Sheet itself before it's published.</li>
+    </ul>
+</div>

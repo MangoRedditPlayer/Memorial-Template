@@ -19,19 +19,18 @@ body {
     color: var(--site-text-color);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     
-    /* Base font size: 112.5% of browser default (usually 16px), so ~18px */
     font-size: 112.5%; 
-    line-height: 1.7; /* Unitless for better readability, relative to font-size */
+    line-height: 1.7; 
     
     margin: 0;
     padding: 0;
-    -webkit-font-smoothing: antialiased; /* Improve font rendering */
-    -moz-osx-font-smoothing: grayscale; /* Improve font rendering */
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale; 
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--site-text-color); /* Ensures headings use the configured text color */
+    color: var(--site-text-color); 
     margin-top: 1.5em;
     margin-bottom: 0.5em;
     line-height: 1.3; 
@@ -62,7 +61,7 @@ a:hover {
 .site-header-content h1 {
     margin-top: 0; 
     margin-bottom: 0.5em;
-    font-size: 1.8rem; /* Using rem for scalability based on root font size */
+    font-size: 1.8rem; 
 }
 
 /* Footer Styling */
@@ -73,7 +72,7 @@ footer {
 
 footer p {
     margin-bottom: 0.5em;
-    font-size: 0.9rem; /* Using rem for scalability */
+    font-size: 0.9rem; 
 }
 
 /* Main Content Area */
@@ -87,11 +86,9 @@ main {
     margin-right: auto;
 }
 
-/* Instruction Box Styling (you can use this class on share-memory.md for Google Form instructions) */
+/* Instruction Box Styling (can be used on share-memory.md or other pages) */
 .instruction-box {
-    background-color: #34495e; /* Example: Complementary dark shade to #2c3e50 */
-    /* Or for a subtle overlay on a dark background:
-    /* background-color: rgba(255, 255, 255, 0.05); */
+    background-color: #34495e; /* Example: Complementary dark shade */
     color: var(--site-text-color); 
     padding: 1em 1.5em;
     margin-top: 1.5em; 
@@ -105,8 +102,8 @@ main {
     color: var(--site-link-color); 
 }
 
-.instruction-box strong { /* For bolded text within instructions */
-    color: var(--site-link-color); /* Or a brighter version of text_color */
+.instruction-box strong { 
+    color: var(--site-link-color); 
 }
 
 .instruction-box p {
@@ -122,49 +119,25 @@ main {
     margin-bottom: 0.5em; 
 }
 
-/* Tributes Page Styling */
-.tributes-list .tribute-item {
-    margin-bottom: 1.5em; /* Spacing below the date */
-    padding-bottom: 0; /* HR will handle visual separation */
+/* Styling for the Google Sheet Iframe container and iframe on tributes.html */
+.google-sheet-tributes-embed {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
 }
 
-h4.tribute-name { 
-    font-size: 1.2em; 
-    color: var(--site-link-color); 
-    margin-top: 0; 
-    margin-bottom: 0.25em;
-    font-weight: bold;
-}
-
-p.tribute-comment { 
-    font-size: 1.1em; 
-    margin-bottom: 0.5em;
-    white-space: pre-wrap; /* Preserves line breaks from the comment data */
-    color: var(--site-text-color); 
-}
-
-p.tribute-date { 
-    font-size: 0.85em;
-    font-style: italic;
-    color: var(--site-text-color); 
-    opacity: 0.8; 
-    margin-top: 0.5em;
-    margin-bottom: 0; /*紧挨着下面的 hr (if any) 或者下一个tribute-item的margin-top */
-    text-align: left; 
-}
-
-hr.tribute-divider {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--site-border-color), rgba(0, 0, 0, 0));
-    margin: 2em 0; /* Increased spacing around the divider */
+.google-sheet-tributes-embed iframe {
+    display: block; /* Allows centering with auto margins if needed, and good practice */
+    margin-left: auto; /* Centers the iframe if its width is less than container */
+    margin-right: auto;
+    border: 1px solid var(--site-border-color); /* Moved border style here */
+    /* width and height are set directly on the iframe tag in tributes.md */
 }
 
 
-/* Photo Gallery Styling (Basic - can be expanded) */
+/* Photo Gallery Styling (Basic - can be expanded if you use _data/photos.yml later) */
 .photo-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust minmax for desired size */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
     gap: 1em;
     margin-top: 1.5em;
 }
@@ -188,9 +161,9 @@ hr.tribute-divider {
     opacity: 0.8;
 }
 
-/* Video Gallery Styling (Basic - can be expanded) */
+/* Video Gallery Styling (Basic - can be expanded if you use _data/videos.yml later) */
 .video-gallery .video-item {
-    margin-bottom: 2.5em; /* Space between videos */
+    margin-bottom: 2.5em; 
     margin-top: 1.5em;
 }
 .video-embed-container {
@@ -202,7 +175,7 @@ hr.tribute-divider {
     background: #000; 
     border: 1px solid var(--site-border-color);
     border-radius: 4px;
-    margin-top: 0.5em; /* Space below caption if present */
+    margin-top: 0.5em; 
 }
 .video-embed-container iframe {
     position: absolute;
@@ -210,6 +183,7 @@ hr.tribute-divider {
     left: 0;
     width: 100%;
     height: 100%;
+    border: none; /* Override any default iframe border from browser for this specific case */
 }
 .video-item h4 { /* Caption for video */
     margin-bottom: 0.3em;
@@ -223,8 +197,8 @@ hr.tribute-divider {
 }
 
 
-/* Responsive Images (already somewhat covered by .photo-item img) */
-img { /* General rule for any other images */
+/* Responsive Images (General rule) */
+img { 
     max-width: 100%;
     height: auto;
     display: block; 
@@ -233,7 +207,7 @@ img { /* General rule for any other images */
 /* Mobile Adjustments */
 @media (max-width: 768px) { 
     body {
-        /* font-size: 100%; /* Example: back to browser default (16px) for smaller screens */
+        /* font-size: 100%; */
     }
 
     .site-header-content h1 {
@@ -241,20 +215,15 @@ img { /* General rule for any other images */
     }
 
     main {
-        /* If your main element has inline padding, that will apply. 
-           If you moved padding to the 'main' rule above, you could adjust it here: */
         /* padding-left: 0.5em; */
         /* padding-right: 0.5em; */
     }
 
-    .instruction-box { /* Renamed from .disqus-instructions */
+    .instruction-box { 
         padding: 1em; 
-        /* If main has its own padding, negative margins might not be needed or desired */
-        /* margin-left: -1em; */
-        /* margin-right: -1em; */
     }
 
     .photo-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Smaller images on mobile */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
     }
 }
